@@ -1,0 +1,20 @@
+<view class="aaa" wx:for="{{comtent}}">
+<!-- {{comtent[0].title}} -->
+<view class='juzhong'>
+<image src='{{item.images.medium}}' class='tupain'></image>
+</view>
+
+<view class='biaoti'>{{item.title}}</view>
+
+<view class='bottom'>
+
+<view> <text>评分:</text> {{item.rating.average}}</view>
+<view class='daoyan'> <text>导演:</text>  {{item.directors[0].name}}</view>
+<view> <text>主演:</text> {{item.casts[0].name}} {{item.casts[1].name}} {{item.casts[2].name}}</view>
+
+<!-- <view> <text>影片类型:</text>  {{item.genres[0]}} {{item.genres[1]}} {{item.genres[2]}}</view> -->
+
+</view>
+
+
+</view>

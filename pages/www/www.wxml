@@ -1,0 +1,46 @@
+<view class="wrapper">
+  <view class="search">
+    <input bindinput="keyword" placeholder="请输入主演名字" />
+    <button type="default" bindtap="searchMovies" data-keyword="{{keyword}}">搜索</button><!--data-keyword向函数传参keyword-->
+  </view>
+  <view class="searchText">您要搜索：{{keyword}}</view>
+  <view class="horLine"></view>
+  <view wx:for="{{searchMovies}}" wx:for-item="item">
+    <view class="content">
+      <view class="picView">
+        <image class="pic" src="{{item.images.medium}}" id="{{item.id}}" bindtap="toDetail" />
+      </view>
+      <view class="info">
+        <view class="name">
+          名称：{{item.title}}
+        </view>
+        <view class="score">{{item.rating.average}}分</view>
+        <view class="type">
+          类型：
+          <block wx:for="{{item.genres}}" wx:for-item="type">
+            {{type}},
+            <!--注意不要使用<view>，不然调不出效果。。-->
+          </block>
+        </view>
+        <view class="director">
+          导演：
+          <block wx:for="{{item.directors}}" wx:for-item="director">
+            {{director.name}},
+          </block>
+        </view>
+        <view class="actor">
+          演员：
+          <block wx:for="{{item.casts}}" wx:for-item="actor">
+            {{actor.name}},
+          </block>
+        </view>
+        <view class="time">年份： {{item.year}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+

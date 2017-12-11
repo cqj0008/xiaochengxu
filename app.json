@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/sou/sou",
+    "pages/www/www",
+    "pages/detail/detail",
+    "pages/home1/home1",
+    "pages/deta/deta",
+    "pages/comtent/comtent",
+    "pages/shouye/shouye",
+    "pages/logs/logs",
+    "pages/page3/page3",
+    "pages/wode/wode",
+    "pages/bbb/bbb"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#000000",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "豆瓣",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": "true"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "red",
+    "list": [
+      {
+        "pagePath": "pages/deta/deta",
+        "text": "榜首",
+        "iconPath": "./images/wxb.png",
+        "selectedIconPath": "./images/wxb00.png"
+      },
+      {
+        "pagePath": "pages/sou/sou",
+        "text": "搜索",
+        "iconPath": "./images/wxb1.png",
+        "selectedIconPath": "./images/wxb2.png"
+      },
+      {
+        "pagePath": "pages/wode/wode",
+        "text": "我的",
+        "iconPath": "./images/iconfont-fuwushichang.png",
+        "selectedIconPath": "./images/iconfont-fuwushichang(1).png"
+      }
+    ]
+  }
+}

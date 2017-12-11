@@ -1,0 +1,40 @@
+/* pages/shouye/shouye.wxss */
+
+.slide-image {
+  width: 100%;
+}
+
+.tupain {
+  width: 100%;
+  height: 130px;
+  margin: 0 10px;
+}
+.title_s {
+ margin: 10px 0 0 5px;
+}
+.title_s text{
+  font-size: 16px;
+  
+ 
+}
+
+.xuanran {
+  display: inline-block;
+  width: 25%;
+  height: 150px;
+  margin: 0 5px;
+  text-align: center;
+  
+}
+
+.scroll-view_H {
+  white-space: nowrap;
+  margin: 10px 0px;
+}
+
+.nizhan {
+  font-size: 13px;
+   text-align: center;
+    width: 100%;
+    margin-left: 10px;
+}

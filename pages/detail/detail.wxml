@@ -1,0 +1,34 @@
+<view wx:for="{{movies}}" class="lanmu" wx:for-item="dianying" bindtap="content" data-id="{{dianying.id}}" data-pp="{{urlName}}">
+ 
+    <!--左边  -->
+    <view class='tupian'>
+      <image src=" {{dianying.images.small}}" class='tupian'></image>
+    </view>
+    <!--中间  -->
+    <view class='biaoti'>
+   
+      <text></text>
+      <view class='a1'> {{dianying.title}}</view>
+      <view class='a2'> 
+      <text>{{dianying.original_title}}</text>
+      <text>( {{dianying.year}} )</text>
+      
+      </view>
+      <view class='a3'> {{dianying.directors[0].name}}</view>
+
+
+    </view>
+    <!--右边  -->
+    <view class='pingfen'>
+      <text> {{dianying.rating.average}} </text>
+    </view>
+
+    
+
+
+
+
+
+ 
+</view>
+<view style="display:{{netToggle}}" class='gengduo'>没有更多电影了</view>

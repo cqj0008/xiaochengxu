@@ -1,0 +1,54 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}" indicator-active-color="#f00">
+  <block wx:for="{{shouYeUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<!--电影标题  正在上映的电影-->
+<view class="title_s">
+  <text>正在上映的电影</text>
+  <text>-北京</text>
+</view>
+
+<view class="aaa">
+  <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+    <view wx:for="{{tuPainUrl}}" class="xuanran" bindtap="detail">
+      <image src="{{item.url}}" class='tupain'></image>
+      <view class="nizhan">密战</view>
+    </view>
+  </scroll-view>
+</view>
+<!--电影标题  即将上映的电影-->
+<view class="title_s">
+  <text>即将上映的电影</text>
+</view>
+
+<view class="aaa">
+  <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+    <view wx:for="{{tuPainUrl}}" class="xuanran" bindtap="detail">
+      <image src="{{item.url}}" class='tupain'></image>
+      <view class="nizhan">密战</view>
+    </view>
+  </scroll-view>
+</view>
+<!--电影标题  TOP250的电影-->
+<view class="title_s">
+  <text>TOP250的电影</text>
+</view>
+
+<view class="aaa">
+  <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+    <view wx:for="{{movies}}" class="xuanran" bindtap="detail" data-tid="{{item.id}}">
+      <image src="{{item.images.small}}" class='tupain'></image>
+      <view class="nizhan">{{item.title}}</view>
+    </view>
+  </scroll-view>
+</view>
+
+
+
+<view wx:for="{{movies}}">
+
+  <view>{{item.title}}</view>
+</view>

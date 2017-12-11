@@ -1,0 +1,43 @@
+<view class="head">
+  <input placeholder="请输入电影或导演" auto-focus class="section" name="inputValue" bindinput='chazhao' value=''/>
+  <text bindtap='find'  data-keyword="{{inputValue}}">搜索</text>
+  
+</view>
+<view class="searchText">您要搜索：{{inputValue}}</view>
+
+
+<view wx:for="{{movies}}" class="lanmu" wx:for-item="dianying" bindtap="content" data-id="{{dianying.id}}" data-pp="{{inputValue}}">
+ 
+    <!--左边  -->
+    <view class='tupian'>
+      <image src=" {{dianying.images.small}}" class='tupian'></image>
+    </view>
+    <!--中间  -->
+    <view class='biaoti'>
+   
+      <text></text>
+      <view class='a1'> {{dianying.title}}</view>
+      <view class='a2'> 
+      <text>{{dianying.original_title}}</text>
+      <text>( {{dianying.year}} )</text>
+      
+      </view>
+      <view class='a3'> {{dianying.directors[0].name}}</view>
+
+
+    </view>
+    <!--右边  -->
+    <view class='pingfen'>
+      <text> {{dianying.rating.average}} </text>
+    </view>
+
+    
+
+
+
+
+
+ 
+</view>
+<view wx:if="{{!netToggle}}" class='gengduo'>没有更多电影了</view>
+

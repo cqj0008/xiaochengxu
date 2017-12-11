@@ -1,0 +1,12 @@
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{movies}}">
+    <swiper-item>
+    
+      <image src="{{item.images.large}}" class="slide-image"/>
+      <view class='tubiao' wx:if="{{index == movies.length - 1}}" bindtap='shouye'>立即体验</view>
+    </swiper-item>
+  </block>
+ 
+</swiper>
+ 

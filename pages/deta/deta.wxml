@@ -1,0 +1,56 @@
+
+  <!--轮播图  -->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}" indicator-active-color="#f00">
+    <block wx:for="{{all_info[0].movies}}">
+      <swiper-item>
+        <image src="{{item.images.medium}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+<!--电影标题  正在上映的电影-->
+  <view class="title_s" wx:if="{{isshow}}">
+    <text bindtap="detail" data-ss="in_theaters">{{all_info[1].title}}</text>
+  <view class="aaa">
+    <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+      <view wx:for="{{all_info[1].movies}}" class="xuanran" bindtap="detail" data-ss="in_theaters">
+        <image src="{{item.images.medium}}" class='tupain'></image>
+        <view class="nizhan">{{item.title}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<!--电影标题  即将上映的电影-->
+ <view class="title_s" wx:if="{{isshow}}">
+    <text bindtap="detail" data-ss="coming_soon">{{all_info[2].title}}</text>
+  <view class="aaa">
+    <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+      <view wx:for="{{all_info[2].movies}}" class="xuanran" bindtap="detail"  data-ss="coming_soon">
+        <image src="{{item.images.medium}}" class='tupain'></image>
+        <view class="nizhan">{{item.title}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<!--电影标题  TOP250的电影-->
+ <view class="title_s" wx:if="{{isshow}}">
+    <text bindtap="detail"  data-ss="top250">{{all_info[3].title}}</text>
+  <view class="aaa">
+    <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+      <view wx:for="{{all_info[3].movies}}" class="xuanran" bindtap="detail" data-ss="top250">
+        <image src="{{item.images.medium}}" class='tupain'></image>
+        <view class="nizhan">{{item.title}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+
+  <!-- <navigator url='../page3/page3'>{{all_info[1].title}}</navigator> -->
+
+  <!-- <image src="{{movie.images.medium}}" class="slide-image" /> -->
+
+
+
+

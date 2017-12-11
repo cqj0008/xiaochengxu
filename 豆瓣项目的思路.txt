@@ -1,0 +1,113 @@
+登陆页面
+1.用API获取用户的头像
+2.设置一个登陆的按钮,在按钮添加点击事件,跳转到引导页面
+使用navigator标签需要设置 url 和 open-type 属性
+
+引导页面
+1.用swiper标签包裹全部view标签,设置一个block标签用wx:for分发内容
+2.再把所有的元素放在swiper-item里面;
+3.立即体验按钮可以通过wx:if="{{index == movies.length - 1}}",图片的下标和图片总数的长度相等的时候显示.
+4.点击立即体验,跳转到首页
+
+首页
+1.顶部的轮播图跟引导页的一样,添加自动播放实现.
+2.网络请求数据: wx:request({})
+url : 请求的地址
+data : {count:数量}
+header: {'content-type':'json'}
+success:function(res) { 成功的回调函数,res是请求成功的数据}
+3.本地存储: wx:setStorage({})
+key: 'index-data' : 设置存储的标头
+data: {movies:[数组],expires:Date.now() + 1000 * 3600 * 24} :存储的对象和设置的过期时间
+this.setData({改变原来data的对象属性值}) : 改变值只能在里面修改,其他地方修改无效
+4.在全局函数中,封装一个js文件,里面有常用的操作,通过 module.exports = {属性名:属性值}
+就是封装函数的名字,返回出去的数据.在app.js文件里面用有一个常量接收,需要在App({wxapis,})里面注册
+const wxapis = require('./utils/wxapis.js') 
+在需要用到的js文件中引入 : var app = getApp();
+5.// 封装Promise函数
+function getStorage(key) {
+  return new Promise(function (resolve, reject) { // 涉及到this问题时,用箭头函数
+    wx.getStorage({ //本地保存
+      key: key, // 标题
+      success: resolve,
+      fail: reject
+    });
+  });
+};
+6.中间部分的划动
+设置上面标题和下面的图片,图片部分需要用scroll-view标签包裹住,设置scroll-x
+再用wx:for分发内容,添加点击事件,跳转到详情的页面
+
+详情列表
+1. 传值 : data-id = "{{dianying.id}}"
+接收值: e.currentTarget.dataset
+  用一个变量接收
+var arr1 = e.currentTarget.dataset;
+ 
+  把对象转换为字符串,拼接在url后面传递到下一个页面   
+let str = JSON.stringify(arr1);
+
+2. 网络状态的成功回调函数 --> 判断网络的类型是否
+为wifi -->(不是) 弹出框(提示当前不在WiFi状态下) -->(点击确定) 跳转到下一个页面,拼接传递的数据
+       -->(是) 直接跳转到下一个页面,拼接传递的数据
+
+详情页面
+1. 在onload函数里面接收上一页传递过来的数据,用
+  解析传递过来的字符串变为对象
+  let item = JSON.parse(options.arr1);
+    console.log(item)
+    
+  this.setData({
+     
+      comtent:item
+  })
+
+搜索页面
+1.开始的时候,先让他请求一次数据,显示在页面
+2.在点击按钮设置一个方法
+先获取输入框的value值 -->  var url = 'https://api.douban.com/v2/movie/search?q=' + this.data.inputValue;
+3.var arr1 = this.data.movies.filter(function (aaa) {
+      return aaa.id == tid;
+    }); 过滤符合的对象
+4.点击跳转到下一页
+
+我的页面
+
+1.设置一个清除按钮,把存储的时间设置为小于当前时间
+wx.setStorage({
+      
+ key: 'inedx_data', //设置存储的标头
+      
+ data: { // 存储数据,过期时间的设置
+        
+ expires: Date.now()
+      
+ },
+    
+});
+
+2.设置一个退出登录按钮,重定向到index页面
+ <navigator url='../index/index' open-type='redirect'/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
